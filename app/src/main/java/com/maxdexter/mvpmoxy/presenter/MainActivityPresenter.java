@@ -19,4 +19,5 @@ public class MainActivityPresenter {
        mTextModel.setText(finalText);
        mContractView.setText(finalText);
    }
+
 }

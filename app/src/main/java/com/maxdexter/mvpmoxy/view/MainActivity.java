@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity implements ContractView{
             @Override
             public void onClick(View v) {
                 mPresenter.clickButton();
+                mEditText.getText().clear();
             }
         });
     }
