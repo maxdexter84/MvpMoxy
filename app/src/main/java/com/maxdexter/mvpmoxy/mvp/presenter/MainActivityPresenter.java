@@ -1,8 +1,8 @@
-package com.maxdexter.mvpmoxy.presenter;
+package com.maxdexter.mvpmoxy.mvp.presenter;
 
 
-import com.maxdexter.mvpmoxy.model.TextModel;
-import com.maxdexter.mvpmoxy.view.ContractView;
+import com.maxdexter.mvpmoxy.mvp.model.TextModel;
+import com.maxdexter.mvpmoxy.mvp.view.ContractView;
 
 public class MainActivityPresenter {
     TextModel mTextModel;

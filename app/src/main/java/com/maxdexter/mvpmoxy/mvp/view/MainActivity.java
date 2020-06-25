@@ -1,4 +1,4 @@
-package com.maxdexter.mvpmoxy.view;
+package com.maxdexter.mvpmoxy.mvp.view;
 
 import android.os.Bundle;
 import android.view.View;
@@ -9,7 +9,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.maxdexter.mvpmoxy.R;
-import com.maxdexter.mvpmoxy.presenter.MainActivityPresenter;
+import com.maxdexter.mvpmoxy.mvp.presenter.MainActivityPresenter;
 
 
 public class MainActivity extends AppCompatActivity implements ContractView{

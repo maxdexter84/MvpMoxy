@@ -1,4 +1,4 @@
-package com.maxdexter.mvpmoxy.view;
+package com.maxdexter.mvpmoxy.mvp.view;
 
 public interface ContractView {
     String getText();

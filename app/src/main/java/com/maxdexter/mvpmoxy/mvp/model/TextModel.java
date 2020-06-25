@@ -1,4 +1,4 @@
-package com.maxdexter.mvpmoxy.model;
+package com.maxdexter.mvpmoxy.mvp.model;
 
 public class TextModel {
     private String text = "";
