@@ -11,12 +11,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.maxdexter.mvpmoxy.R;
 import com.maxdexter.mvpmoxy.moxy.presenter.MainActivityPresenter;
 
+import moxy.presenter.InjectPresenter;
 
-public class MainActivity extends AppCompatActivity implements ContractView {
+
+public class MainActivitySecond extends AppCompatActivity implements ContractView {
 
     EditText mEditText;
     Button mButton;
     TextView mTextView;
+    @InjectPresenter
     MainActivityPresenter mPresenter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
