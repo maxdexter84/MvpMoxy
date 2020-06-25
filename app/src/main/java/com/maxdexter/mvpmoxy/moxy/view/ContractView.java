@@ -1,6 +1,11 @@
 package com.maxdexter.mvpmoxy.moxy.view;
 
-public interface ContractView {
-    String getText();
+import moxy.MvpView;
+import moxy.viewstate.strategy.AddToEndStrategy;
+import moxy.viewstate.strategy.StateStrategyType;
+
+public interface ContractView extends MvpView {
+    @StateStrategyType(value = AddToEndStrategy.class)
     void setText(String text);
+
 }

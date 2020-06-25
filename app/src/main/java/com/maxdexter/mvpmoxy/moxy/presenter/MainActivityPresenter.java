@@ -3,21 +3,26 @@ package com.maxdexter.mvpmoxy.moxy.presenter;
 
 import com.maxdexter.mvpmoxy.moxy.model.TextModel;
 import com.maxdexter.mvpmoxy.moxy.view.ContractView;
+import com.maxdexter.mvpmoxy.moxy.view.MainActivitySecond;
 
-public class MainActivityPresenter {
+import moxy.InjectViewState;
+import moxy.MvpPresenter;
+@InjectViewState
+public class MainActivityPresenter extends MvpPresenter<ContractView> {
     TextModel mTextModel;
-    ContractView mContractView;
 
-   public MainActivityPresenter(ContractView contractView){
-       this.mContractView = contractView;
+
+   public MainActivityPresenter(){
        mTextModel = new TextModel();
    }
-   public void clickButton(){
+   public void clickButton(String text){
        String oldText = mTextModel.getText();
-       String newText = mContractView.getText();
+       String newText = text;
        String finalText = oldText + newText;
        mTextModel.setText(finalText);
-       mContractView.setText(finalText);
+       getViewState().setText(finalText);
    }
-
+public void setText(String text){
+       mTextModel.setText(text);
+}
 }
