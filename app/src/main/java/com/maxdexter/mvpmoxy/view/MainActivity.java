@@ -9,6 +9,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.maxdexter.mvpmoxy.R;
+import com.maxdexter.mvpmoxy.presenter.MainActivityPresenter;
 
 
 public class MainActivity extends AppCompatActivity implements ContractView{
@@ -16,12 +17,19 @@ public class MainActivity extends AppCompatActivity implements ContractView{
     EditText mEditText;
     Button mButton;
     TextView mTextView;
-
+    MainActivityPresenter mPresenter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initView();
+        mPresenter = new MainActivityPresenter(this);
+        mButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                mPresenter.clickButton();
+            }
+        });
     }
 
     private void initView() {
