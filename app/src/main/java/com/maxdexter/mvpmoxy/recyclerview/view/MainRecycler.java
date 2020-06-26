@@ -14,18 +14,16 @@ import android.os.Build;
 import android.os.Bundle;
 
 import com.maxdexter.mvpmoxy.R;
-
-import java.util.ArrayList;
-import java.util.List;
+import com.maxdexter.mvpmoxy.recyclerview.presenter.MainRecyclerPresenter;
 
 public class MainRecycler extends AppCompatActivity {
-
+    MainRecyclerPresenter mMainRecyclerPresenter;
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recycler_view);
-
+        mMainRecyclerPresenter = new MainRecyclerPresenter();
       Drawable drawable = getDrawable(R.drawable.ic_launcher_background);
 
         RecyclerAdapter recyclerAdapter = new RecyclerAdapter(drawable);

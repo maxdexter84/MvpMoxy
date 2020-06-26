@@ -22,7 +22,5 @@ public class MainActivityPresenter extends MvpPresenter<ContractView> {
        mTextModel.setText(finalText);
        getViewState().setText(finalText);
    }
-public void setText(String text){
-       mTextModel.setText(text);
-}
+
 }
