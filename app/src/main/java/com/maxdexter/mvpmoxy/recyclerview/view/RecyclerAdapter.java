@@ -61,7 +61,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
                 public void onClick(View v) {
                     x += 1;
                     Log.d(TAG,"" + x);
-                   
+
                 }
             });
         }
