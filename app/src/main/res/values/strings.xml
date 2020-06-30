@@ -3,4 +3,7 @@
     <string name="edit_text">Edit text</string>
     <string name="set_text">Set text</string>
     <string name="push">Push</string>
+    <string name="subscribe">Подписаться</string>
+    <string name="spam">Спам</string>
+    <string name="unsubscribe">Отписаться</string>
 </resources>

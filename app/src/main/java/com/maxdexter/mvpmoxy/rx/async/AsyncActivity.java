@@ -25,6 +25,7 @@ public class AsyncActivity extends AppCompatActivity {
             public void onClick(View v) {
                 MyAsync myAsync = new MyAsync();
                 myAsync.execute();
+                Log.d(TAG,"onClick завершен ");
             }
         });
     }
