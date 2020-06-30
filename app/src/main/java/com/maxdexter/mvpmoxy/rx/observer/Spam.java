@@ -1,8 +1,8 @@
 package com.maxdexter.mvpmoxy.rx.observer;
-
+import com.maxdexter.mvpmoxy.rx.observer.Observer;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Observer;
+
 
 public class Spam implements Observable{
     List<Observer> list;
@@ -24,6 +24,8 @@ public class Spam implements Observable{
 
     @Override
     public void spam() {
-
+        for (Observer o:list) {
+            o.mailUpdate("Thread " + Thread.currentThread().getName());
+        }
     }
 }

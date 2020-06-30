@@ -1,6 +1,6 @@
 package com.maxdexter.mvpmoxy.rx.observer;
 
-import java.util.Observer;
+import com.maxdexter.mvpmoxy.rx.observer.Observer;
 
 public interface Observable {
     void registerObserver(Observer observer);
