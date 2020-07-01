@@ -10,6 +10,7 @@ import android.widget.Button;
 import com.maxdexter.mvpmoxy.R;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import io.reactivex.*;
@@ -26,26 +27,14 @@ public class RxActivity extends AppCompatActivity {
         setContentView(R.layout.activity_rx);
         subscribeRx = findViewById(R.id.subscribeRx);
         unsubscribeRx = findViewById(R.id.unsubscribeRx);
-        observable = Observable.create(emitter -> {
-            try{
-                List<String> spamList = new ArrayList<>();
-                spamList.add("Spam 1");
-                spamList.add("Spam 2");
-                spamList.add("Spam 3");
-                for (String str:spamList) {
-                    emitter.onNext(str);
-                }
-                emitter.onComplete();
-            }catch (Exception e){
-                emitter.onError(e);
-            }
 
-        });
+        initObservable();
+
         subscribeRx.setOnClickListener(v -> {
             Observer<String> observer = new Observer<String>() {
                 @Override
                 public void onSubscribe(Disposable d) {
-                    
+
                 }
                 @Override
                 public void onNext(String s) {
@@ -67,5 +56,10 @@ public class RxActivity extends AppCompatActivity {
         });
 
 
+    }
+
+    private void initObservable() {
+        List<String> spamList = Arrays.asList("Spam 1", "Spam 2","Spam 3");
+        observable = Observable.fromIterable(spamList);
     }
 }
