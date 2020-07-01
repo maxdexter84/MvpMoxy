@@ -4,23 +4,17 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.widget.Button;
 
 import com.maxdexter.mvpmoxy.R;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
+import java.util.concurrent.TimeUnit;
 import io.reactivex.*;
 import io.reactivex.disposables.Disposable;
-
 public class RxActivity extends AppCompatActivity {
     private static final String TAG = "tag";
     Button subscribeRx;
     Button unsubscribeRx;
-    Observable<String> observable;
+    Observable<Long> observable;
     Disposable mDispose;
     Observer<String> observer;
     @Override
@@ -32,7 +26,7 @@ public class RxActivity extends AppCompatActivity {
 
         initObservable();
         subscribeRx.setOnClickListener(v -> {
-          mDispose = observable.subscribe(s -> Log.d(TAG,s),
+          mDispose = observable.subscribe(s -> Log.d(TAG,s + " spam"),
                   t-> Log.d(TAG,t.getMessage()),
                   ()-> Log.d(TAG,"Поток данных закончился")
                   );
@@ -53,7 +47,7 @@ public class RxActivity extends AppCompatActivity {
 
 
     private void initObservable() {
-        List<String> spamList = Arrays.asList("Spam 1", "Spam 2","Spam 3");
-        observable = Observable.fromIterable(spamList);
+        observable = Observable.interval(500, TimeUnit.MILLISECONDS);
+
     }
 }
