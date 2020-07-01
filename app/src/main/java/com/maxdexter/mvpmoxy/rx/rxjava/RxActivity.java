@@ -21,6 +21,8 @@ public class RxActivity extends AppCompatActivity {
     Button subscribeRx;
     Button unsubscribeRx;
     Observable<String> observable;
+    Disposable mDispose;
+    Observer<String> observer;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,34 +31,26 @@ public class RxActivity extends AppCompatActivity {
         unsubscribeRx = findViewById(R.id.unsubscribeRx);
 
         initObservable();
-
         subscribeRx.setOnClickListener(v -> {
-            Observer<String> observer = new Observer<String>() {
-                @Override
-                public void onSubscribe(Disposable d) {
-
-                }
-                @Override
-                public void onNext(String s) {
-                    Log.d(TAG,s);
-                }
-
-                @Override
-                public void onError(Throwable e) {
-                    Log.d(TAG,e.getMessage());
-                }
-
-                @Override
-                public void onComplete() {
-
-                }
-            };
-            observable.subscribe(observer);
+          mDispose = observable.subscribe(s -> Log.d(TAG,s),
+                  t-> Log.d(TAG,t.getMessage()),
+                  ()-> Log.d(TAG,"Поток данных закончился")
+                  );
 
         });
 
+        unsubscribeRx.setOnClickListener(v -> {
+            mDispose.dispose();
+            if(mDispose.isDisposed()){
+                Log.d(TAG, "Вы отписались от спама");
+            }
+        });
+
+
 
     }
+
+
 
     private void initObservable() {
         List<String> spamList = Arrays.asList("Spam 1", "Spam 2","Spam 3");
