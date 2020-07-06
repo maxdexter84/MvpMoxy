@@ -1,4 +1,9 @@
 package com.maxdexter.mvpmoxy.recyclerview.view;
 
-public interface ViewImage {
+import android.graphics.Bitmap;
+
+import moxy.MvpView;
+
+public interface ViewImage extends MvpView {
+    void setImage(Bitmap bitmap);
 }
