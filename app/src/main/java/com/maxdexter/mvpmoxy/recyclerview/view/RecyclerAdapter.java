@@ -1,5 +1,6 @@
 package com.maxdexter.mvpmoxy.recyclerview.view;
 
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -61,7 +62,6 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
                 public void onClick(View v) {
                     x += 1;
                     Log.d(TAG,"" + x);
-
                 }
             });
         }

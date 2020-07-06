@@ -1,5 +1,5 @@
 package com.maxdexter.mvpmoxy.recyclerview.presenter;
 
-public class MainRecyclerPresenter  {
+public class MainRecyclerPresenter implements  {
 
 }
