@@ -1,24 +1,23 @@
 package com.maxdexter.mvpmoxy.retrofit;
 
+import io.reactivex.Observable;
+import io.reactivex.schedulers.Schedulers;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-class LoadData {
-    private static Retrofit sRetrofit;
+public class LoadData {
 
-    public static Retrofit getRetrofit(){
-        if(sRetrofit == null) {
-            sRetrofit = new Retrofit.Builder()
-                    .baseUrl("https://api.github.com")
-                    .addConverterFactory(GsonConverterFactory.create())
-                    .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-                    .build();
-        }
-        return sRetrofit;
-    }
 
-    public static Api getApi() {
+    public Observable<User> requestServer() {
 
+        Api api = new Retrofit.Builder()
+                .baseUrl("https://api.github.com")
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create())
+                .build()
+                .create(Api.class);
+
+        return api.getUser().subscribeOn(Schedulers.io());
     }
 }
