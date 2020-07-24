@@ -1,10 +1,12 @@
 package com.maxdexter.mvpmoxy.retrofit;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatImageView;
 
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 
 import com.bumptech.glide.Glide;
 import com.maxdexter.mvpmoxy.R;
@@ -15,30 +17,40 @@ import io.reactivex.disposables.Disposable;
 
 public class RetrofitActivity extends AppCompatActivity {
     private static final String TAG = "tag";
-    private LoadData mLoadData;
+    AppCompatImageView mImageView;
+    Button mButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_retrofit);
-        mLoadData = new LoadData();
+        mImageView = findViewById(R.id.image_user);
+        mButton = findViewById(R.id.photo_load);
+        clickButton();
     }
 
-    public void getPhoto() {
-        String url;
-        Observable<User> single = mLoadData.requestServer();
+    private void clickButton() {
+        mButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getPhoto();
 
-        Disposable disposable = single.observeOn(AndroidSchedulers.mainThread()).subscribe(obj -> {
-             obj.getAvatarUrl();
-        }, throwable -> {
-            Log.e(TAG, "onError");
+            }
         });
     }
 
-    public void onClickButton(View view){
-        Glide
-                .with(this)
-                .load("https://avatars0.githubusercontent.com/u/66577?v=4")
-                .into();
+    public void getPhoto() {
+        Observable<User> single = LoadData.getInstance().requestServer();
+
+        Disposable disposable = single.observeOn(AndroidSchedulers.mainThread()).subscribe(obj -> {
+            Glide
+                    .with(getApplicationContext())
+                    .load(obj.getAvatarUrl())
+                    .into(mImageView);
+        }, throwable -> {
+            Log.e(TAG, "onError" + throwable);
+        });
     }
+
+
 
 }

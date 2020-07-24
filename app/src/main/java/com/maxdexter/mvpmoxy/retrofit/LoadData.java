@@ -7,7 +7,14 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class LoadData {
+ public static LoadData sLoadData;
 
+ public static LoadData getInstance(){
+     if(sLoadData == null) {
+         sLoadData = new LoadData();
+     }
+     return sLoadData;
+ }
 
     public Observable<User> requestServer() {
 
