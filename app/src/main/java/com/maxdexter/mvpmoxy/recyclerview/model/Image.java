@@ -1,13 +1,17 @@
 package com.maxdexter.mvpmoxy.recyclerview.model;
 
 public class Image {
-private int clicks;
-
-    public int getClicks() {
-        return clicks;
+    public int getNumImage() {
+        return numImage;
     }
 
-    public void setClicks(int clicks) {
-        this.clicks = clicks;
+    public void setNumImage(int numImage) {
+        this.numImage = numImage;
     }
+
+    private int numImage;
+
+
+
+
 }

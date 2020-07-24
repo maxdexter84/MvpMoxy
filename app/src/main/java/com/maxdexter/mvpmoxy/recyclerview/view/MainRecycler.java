@@ -7,8 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.graphics.Canvas;
-import android.graphics.ColorFilter;
+
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
@@ -16,7 +15,11 @@ import android.os.Bundle;
 import com.maxdexter.mvpmoxy.R;
 import com.maxdexter.mvpmoxy.recyclerview.presenter.MainRecyclerPresenter;
 
-public class MainRecycler extends AppCompatActivity {
+import moxy.MvpAppCompatActivity;
+import moxy.presenter.InjectPresenter;
+
+public class MainRecycler extends MvpAppCompatActivity {
+    @InjectPresenter
     MainRecyclerPresenter mMainRecyclerPresenter;
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
