@@ -1,8 +1,10 @@
-package com.maxdexter.mvpmoxy;
+package com.maxdexter.mvpmoxy.gson;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.maxdexter.mvpmoxy.R;
 
 public class GsonActivity extends AppCompatActivity {
 
