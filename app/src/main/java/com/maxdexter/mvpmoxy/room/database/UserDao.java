@@ -6,6 +6,8 @@ import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 import androidx.room.Update;
+import io.reactivex.*;
+import retrofit2.http.DELETE;
 
 import com.maxdexter.mvpmoxy.room.User;
 
@@ -14,17 +16,17 @@ import java.util.List;
 @Dao
 public interface UserDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE) //если будет такой же user то он его заменит
-    void addUser(User user);
+    Single<Long> addUser(User user);
 
     @Query("SELECT * FROM users")
-    List<User> getAllUser();
+    Single<List<User>>  getAllUser();
 
     @Query("SELECT * FROM users where name =:surname")
-    List<User> selectUser(String surname);
+    Single<List<User>> selectUser(String surname);
 
     @Update
-    void updateUser(User user);
+    Single<Integer> updateUser(User user);
 
     @Delete
-    void deleteUser(User user);
+    Single<Integer> deleteUser(User user);
 }

@@ -16,8 +16,8 @@ import java.util.List;
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHolder> {
 
     List<User> users;
-    public RecyclerAdapter (List<User> users) {
-        this.users = users;
+    public RecyclerAdapter () {
+
     }
     @NonNull
     @Override
@@ -31,6 +31,9 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
         User user = users.get(position);
         holder.bind(user);
 
+    }
+    public void addList(List<User> list) {
+        users = list;
     }
 
     @Override
@@ -51,7 +54,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
         private void bind(User user) {
             userName.setText(user.getName());
             userSurname.setText(user.getSurname());
-            userSurname.setText(user.getAge());
+            userSurname.setText("Age " + user.getAge());
         }
     }
 }

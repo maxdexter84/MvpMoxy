@@ -7,7 +7,7 @@ import androidx.room.PrimaryKey;
 @Entity(tableName = "users")
 public class User {
     @PrimaryKey
-    private int id;
+    private Long id;
     @ColumnInfo(name = "name")
     private String name;
     @ColumnInfo(name = "surname")
@@ -37,5 +37,19 @@ public class User {
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    public User(String name, String surname, int age) {
+        this.name = name;
+        this.surname = surname;
+        this.age = age;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }
