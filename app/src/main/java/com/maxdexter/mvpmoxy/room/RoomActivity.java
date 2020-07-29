@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
+import com.maxdexter.mvpmoxy.R;
+
 public class RoomActivity extends AppCompatActivity {
 
     @Override

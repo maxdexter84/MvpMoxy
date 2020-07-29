@@ -7,7 +7,7 @@ import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 import androidx.room.Update;
 
-import com.maxdexter.retrofituser.model.User;
+import com.maxdexter.mvpmoxy.room.User;
 
 import java.util.List;
 
@@ -19,8 +19,8 @@ public interface UserDao {
     @Query("SELECT * FROM users")
     List<User> getAllUser();
 
-    @Query("SELECT * FROM users where name =:name")
-    List<User> selectUser(String name);
+    @Query("SELECT * FROM users where name =:surname")
+    List<User> selectUser(String surname);
 
     @Update
     void updateUser(User user);
