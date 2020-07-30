@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.maxdexter.mvpmoxy.R;
 import com.maxdexter.mvpmoxy.room.User;
+import com.maxdexter.mvpmoxy.room.database.RoomPresenter;
 
 import java.util.List;
 
@@ -17,7 +18,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
 
     List<User> users;
     public RecyclerAdapter () {
-
+        users = RoomPresenter.getInstance().getUsers();
     }
     @NonNull
     @Override
@@ -32,13 +33,12 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
         holder.bind(user);
 
     }
-    public void addList(List<User> list) {
-        users = list;
-    }
 
     @Override
     public int getItemCount() {
-        return users.size();
+        if (users == null) {
+            return 0;
+        }else return users.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
