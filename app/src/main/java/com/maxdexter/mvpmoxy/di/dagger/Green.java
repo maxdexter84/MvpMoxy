@@ -1,5 +1,8 @@
 package com.maxdexter.mvpmoxy.di.dagger;
 
+
+
+
 public class Green {
     String green = "green";
 
