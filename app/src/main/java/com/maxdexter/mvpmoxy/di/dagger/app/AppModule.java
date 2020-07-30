@@ -17,13 +17,13 @@ public class AppModule {
     private final Application mApplication;
 
     public AppModule(Application application) {
-        mApplication = application;
+        this.mApplication = application;
     }
 
 
     @Singleton
     @Provides
-    Green provideRed() {
+    Green provideGreen() {
         return new Green();
     }
 

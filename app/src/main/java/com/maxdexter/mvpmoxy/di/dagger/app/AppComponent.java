@@ -9,7 +9,7 @@ import javax.inject.Singleton;
 import dagger.Component;
 
 @Singleton
-@Component
+@Component(modules = {AppModule.class})
 public interface AppComponent {
    void inject(DaggerActivity daggerActivity);
    void inject(Red red);
