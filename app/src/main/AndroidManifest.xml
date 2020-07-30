@@ -11,16 +11,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".di.nodi.NoDiActivity"></activity>
-        <activity android:name=".room.RoomActivity">
+        <activity android:name=".di.nodi.NoDiActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".room.RoomActivity">
+
+        </activity>
         <activity android:name=".retrofit.RetrofitActivity"></activity>
-        
+
     </application>
 
 </manifest>
