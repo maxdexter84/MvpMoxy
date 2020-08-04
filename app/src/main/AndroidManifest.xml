@@ -11,7 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".test.unit.UnitActivity"></activity>
+        <activity android:name=".test.unit.TextActivity"></activity>
         <activity android:name=".di.dagger.DaggerActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
