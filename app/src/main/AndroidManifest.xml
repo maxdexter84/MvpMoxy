@@ -11,16 +11,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".di.dagger.DaggerActivity" >
+        <activity android:name=".test.unit.UnitActivity"></activity>
+        <activity android:name=".di.dagger.DaggerActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".di.diActivity.DIActivity">
-
-        </activity>
+        <activity android:name=".di.diActivity.DIActivity"></activity>
         <activity android:name=".di.nodi.NoDiActivity" />
         <activity android:name=".room.RoomActivity" />
         <activity android:name=".retrofit.RetrofitActivity" />
