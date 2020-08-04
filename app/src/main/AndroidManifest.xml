@@ -3,29 +3,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.maxdexter.mvpmoxy">
 
-<!--    <uses-permission android:name="android.permission.INTERNET" />-->
-
     <application
-        android:name=".room.database.AppDatabase"
+        android:name=".di.dagger.app.App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
-        <activity android:name=".room.RoomActivity">
+        <activity android:name=".di.dagger.DaggerActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".retrofit.RetrofitActivity">
+        <activity android:name=".di.diActivity.DIActivity">
 
         </activity>
-        <activity android:name=".gson.GsonActivity">
-        </activity>
+        <activity android:name=".di.nodi.NoDiActivity" />
+        <activity android:name=".room.RoomActivity" />
+        <activity android:name=".retrofit.RetrofitActivity" />
     </application>
 
 </manifest>
