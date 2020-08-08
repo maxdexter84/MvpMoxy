@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.maxdexter.mvpmoxy.R;
+import com.squareup.leakcanary.LeakCanary;
 
 public class TextActivity extends AppCompatActivity {
     Button mButton;
