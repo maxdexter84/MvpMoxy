@@ -45,7 +45,6 @@ public class RetrofitActivity extends AppCompatActivity {
             Glide
                     .with(getApplicationContext())
                     .load(obj.getAvatarUrl())
-                    .skipMemoryCache(true)
                     .into(mImageView);
         }, throwable -> {
             Log.e(TAG, "onError" + throwable);
