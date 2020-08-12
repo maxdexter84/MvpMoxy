@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.maxdexter.mvpmoxy.R;
 
 import io.reactivex.Observable;
@@ -45,6 +46,7 @@ public class RetrofitActivity extends AppCompatActivity {
             Glide
                     .with(getApplicationContext())
                     .load(obj.getAvatarUrl())
+                    .diskCacheStrategy(DiskCacheStrategy.ALL)
                     .into(mImageView);
         }, throwable -> {
             Log.e(TAG, "onError" + throwable);
